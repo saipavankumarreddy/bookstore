@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>addingbooks</title>
+    <style>
+         .btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                margin: 30px 0;
+                border: none;
+                cursor: pointer;
+                position: absolute;
+                right: 8px;
+                top: 5px;
+
+                }
+
+                .btn a{
+                text-decoration:none;
+                color:#fff;
+                }
+
+         form {
+               border: 3px solid  #f1f1f1;
+               width:50%;
+               height:70%
+               margin:0 auto;
+               padding:20px;
+               }
+        .container {
+                width:50%;
+                padding: 16px;
+                margin:0 500px;
+                }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div>
+        <button type="button" class="btn"><a href="/adminlogout">logout </a></button>
+    </div>
+
+<form action="/addingbook" method="post">
+    <h3>Book To Add:</h3> <input type="text" name="bookname" ><br>
+    <h3>Genre:</h3>      <input type="text" name="genre"><br>
+    <h3>Author:</h3>     <input type="text" name="authorname">
+            <input type="submit" value="submit">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+           {% for message in messages %}
+           <li>{{ message }}</li>
+           {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>homepage</title>
+    <link type="text/css" rel="stylesheet" href="/static/stylesheet/userpage.css"/>
+</head>
+<body>
+
+    <div class="main">
+        <div>
+            <button type="button" class="btn"><a href= "/userlogout"> Logout </a></button>
+        </div>
+        <h1>Welcome To Book Store !!</h1>
+        <form action="/bookread" method="post">
+
+                <h3>List Of Books:</h3> <select name="book">
+        <option value="list of books" disabled selected >choose a book from list</option>
+        {% for book in book %}
+            <option > {{ book.name }}</option>
+        {% endfor %}
+        </select><br><br>
+            <input type="submit" value="submit">
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="/bookrequest" method="post">
+            <h3>Request of books:</h3> <input type='text' name="requirebook">
+            <h3>author name:</h3> <input type='text' name="authorname">
+            <input type="submit" value="submit">
+
+        </form>
+
+
+        <br>
+        <p>Do you want to be an Admin of BookForms? Then <a href="/adminrequest">click here</a>. </p>
+
+
+    </div>
+
+    </body>
+</html>

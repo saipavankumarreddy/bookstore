@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Signup</title>
+</head>
+<body>
+    <form action="/signedup" method="post">
+        <h3>Admin Name: <input type="text" placeholder="Enter AdminName" name="adminname"> </h3><br>
+        <h3>Admin Email: <input type="email" placeholder="Enter Email-ID" name="adminemail"></h3><br>
+        <h3>Password: <input type="password" placeholder="Enter Password" name="adminpassword"></h3><br>
+        <h3>Confirm Password: <input type="password" placeholder="Confirm Password" name="confirmpassword"></h3><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+</body>
+</html>
